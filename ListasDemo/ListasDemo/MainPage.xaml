@@ -5,12 +5,62 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="ListasDemo.MainPage">
-
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ListView Header="PRUEBA HEADER (no se verá)"
+              Footer="PRUEBA FOOTER (no se verá)"
+              ItemsSource="{Binding .}"
+              RowHeight="50">
+        <ListView.HeaderTemplate>
+            <DataTemplate>
+                <StackLayout Orientation="Horizontal"
+                             HorizontalOptions="CenterAndExpand">
+                    <Label Text="Reemplaza"
+                           TextColor="Green"></Label>
+                    <Label Text="el texto"
+                           TextColor="Blue"></Label>
+                    <Label Text="escrito anteriormente"
+                           TextColor="Red"></Label>
+                </StackLayout>
+            </DataTemplate>
+        </ListView.HeaderTemplate>
+        <ListView.FooterTemplate>
+            <DataTemplate>
+                <Label Text="Ejemplo Footer, también sobreescribe"
+                       TextColor="Violet"
+                       HorizontalTextAlignment="Center"></Label>
+            </DataTemplate>
+        </ListView.FooterTemplate>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ViewCell.View>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="2*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="4*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"
+                                   Text="{Binding .FirstName}"
+                                   VerticalTextAlignment="Center"></Label>
+                            <Label Grid.Column="1"
+                                   Text="{Binding .Phone}"
+                                   VerticalTextAlignment="Center"></Label>
+                            <ImageButton Source="Llamar.png"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="CenterAndExpand"
+                                         Grid.Column="2"
+                                         Clicked="BotonLlamadaClick">
+                            </ImageButton>
+                            <Label Grid.Column="3"
+                                   Text="{Binding .Email}"
+                                   HorizontalTextAlignment="Center"
+                                   VerticalTextAlignment="Center"></Label>
+                        </Grid>
+                    </ViewCell.View>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+   </ListView>
 
 </ContentPage>
