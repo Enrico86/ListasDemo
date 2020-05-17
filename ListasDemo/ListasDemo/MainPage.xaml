@@ -8,7 +8,9 @@
     <ListView Header="PRUEBA HEADER (no se verá)"
               Footer="PRUEBA FOOTER (no se verá)"
               ItemsSource="{Binding .}"
-              RowHeight="50">
+              SeparatorVisibility="Default"
+              SeparatorColor="Black"
+              HasUnevenRows="True">
         <ListView.HeaderTemplate>
             <DataTemplate>
                 <StackLayout Orientation="Horizontal"
@@ -47,6 +49,7 @@
                                    Text="{Binding .Phone}"
                                    VerticalTextAlignment="Center"></Label>
                             <ImageButton Source="Llamar.png"
+                                         HeightRequest="50"
                                          HorizontalOptions="Center"
                                          VerticalOptions="CenterAndExpand"
                                          Grid.Column="2"
