@@ -7,18 +7,15 @@ namespace ListasDemo.Model
 {
     public class ContactosRepository
     {
-        public IList<Contactos> Contactos {get; set;}
+        public IList<Contactos> Contacto {get; set;}
         public ContactosRepository()
         {
-            Hydrator<Contactos> _contactosHydrator = new Hydrator<Contactos>();
-            Contactos = _contactosHydrator.GetList(50);
-
+            Hydrator<Contactos> _contactoHydrator = new Hydrator<Contactos>();
+            Contacto = _contactoHydrator.GetList(50);
         }
-
         public IList<Contactos> GetAll()
         {
-            return Contactos;
+            return Contacto;
         }
-
     }
 }

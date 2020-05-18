@@ -7,7 +7,7 @@
              x:Class="ListasDemo.MainPage">
     <ListView Header="PRUEBA HEADER (no se verá)"
               Footer="PRUEBA FOOTER (no se verá)"
-              ItemsSource="{Binding .}"
+              ItemsSource="{Binding ContactoLista}"
               SeparatorVisibility="Default"
               SeparatorColor="Black"
               HasUnevenRows="True">
