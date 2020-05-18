@@ -10,7 +10,22 @@
               ItemsSource="{Binding ContactoLista}"
               SeparatorVisibility="Default"
               SeparatorColor="Black"
-              HasUnevenRows="True">
+              HasUnevenRows="True"
+              IsGroupingEnabled="True"
+              GroupShortNameBinding="{Binding Key}">
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <ViewCell Height="30">
+                    <StackLayout VerticalOptions="FillAndExpand"
+                                 Padding="10"
+                                 BackgroundColor="Blue">
+                        <Label Text="{Binding Key}"
+                               TextColor="White"
+                               VerticalOptions="Center"></Label>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+            </ListView.GroupHeaderTemplate>
         <ListView.HeaderTemplate>
             <DataTemplate>
                 <StackLayout Orientation="Horizontal"
