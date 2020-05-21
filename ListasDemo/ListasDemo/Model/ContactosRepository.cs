@@ -21,7 +21,7 @@ namespace ListasDemo.Model
             return Contacto;
         }
 
-        public IList<Contactos> GetAllFirstLetter(string letter)
+        public IList<Contactos> GetAllByFirstLetter(string letter)
         {
             var query = from q in Contacto
                         where q.FirstName.StartsWith(letter)
