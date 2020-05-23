@@ -3,16 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:ListasDemo.Behaviors;"
              mc:Ignorable="d"
              x:Class="ListasDemo.MainPage">
-    <ListView Header="PRUEBA HEADER (no se verá)"
-              Footer="PRUEBA FOOTER (no se verá)"
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Command="{Binding AddContactoCommand}">
+            
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ListView Header=""
+              Footer=""
               ItemsSource="{Binding ContactoLista}"
               SeparatorVisibility="Default"
               SeparatorColor="Black"
               HasUnevenRows="True"
               IsGroupingEnabled="True"
-              GroupShortNameBinding="{Binding Key}">
+              GroupShortNameBinding="{Binding Key}"
+              SelectedItem="{Binding CurrentContacto}"
+              local:ItemTappedAttached.Command="{Binding ItemTappedCommand}">
         <ListView.GroupHeaderTemplate>
             <DataTemplate>
                 <ViewCell Height="30">
@@ -30,19 +39,15 @@
             <DataTemplate>
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="CenterAndExpand">
-                    <Label Text="Reemplaza"
-                           TextColor="Green"></Label>
-                    <Label Text="el texto"
-                           TextColor="Blue"></Label>
-                    <Label Text="escrito anteriormente"
-                           TextColor="Red"></Label>
+                    <Label Text="LISTA CONTACTOS"
+                           TextColor="DarkBlue"></Label>
                 </StackLayout>
             </DataTemplate>
         </ListView.HeaderTemplate>
         <ListView.FooterTemplate>
             <DataTemplate>
-                <Label Text="Ejemplo Footer, también sobreescribe"
-                       TextColor="Violet"
+                <Label Text="Derechos reservados"
+                       TextColor="DarkBlue"
                        HorizontalTextAlignment="Center"></Label>
             </DataTemplate>
         </ListView.FooterTemplate>

@@ -1,11 +1,13 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace ListasDemo.Model
 {
-    public class Contactos
+    public class Contactos: INotifyPropertyChanged
     {
 
         
@@ -34,7 +36,11 @@ namespace ListasDemo.Model
         public string FirstName
         {
             get { return _FirstName; }
-            set { _FirstName = value; }
+            set 
+                { 
+                _FirstName = value;
+                OnPropertyChanged();
+                }
         }
 
         private string _Phone;
@@ -42,15 +48,30 @@ namespace ListasDemo.Model
         public string Phone
         {
             get { return _Phone; }
-            set { _Phone = value; }
+            set 
+                { 
+                _Phone = value;
+                OnPropertyChanged();
+                }
         }
 
         private string _Email;
 
+
+
         public string Email
         {
             get { return _Email; }
-            set { _Email = value; }
+            set { 
+                _Email = value;
+                OnPropertyChanged();
+                    }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs((propertyName)));
         }
 
     }

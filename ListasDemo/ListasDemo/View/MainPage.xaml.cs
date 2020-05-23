@@ -18,11 +18,18 @@ namespace ListasDemo
         {
             InitializeComponent();
         
-            this.BindingContext = new MainPageViewModel();
+            //this.BindingContext = new MainPageViewModel();
         }
         private void BotonLlamadaClick(object sender, EventArgs e)
         {
             DisplayAlert("Llamada", "Llamada en curso", "OK");
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            this.BindingContext = new MainPageViewModel(Navigation);
+        }
+
     }
 }

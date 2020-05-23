@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ListasDemo.Model;
+using ListasDemo.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,9 +14,18 @@ namespace ListasDemo.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ContactosView : ContentPage
     {
-        public ContactosView()
+        public ContactosView(Contactos contacto = null)
         {
             InitializeComponent();
+            if (contacto == null)
+            {
+                BindingContext = new ContactosViewViewModel(Navigation);
+            }
+            else
+            {
+                BindingContext = new ContactosViewViewModel(Navigation, contacto);
+            }
+
         }
     }
 }

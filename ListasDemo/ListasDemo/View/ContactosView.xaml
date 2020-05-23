@@ -7,9 +7,19 @@
              x:Class="ListasDemo.View.ContactosView">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="FirstName"></Label>
+            <Entry Placeholder="Enrico"
+                   Text="{Binding NewContacto.FirstName}"></Entry>
+            <Label Text="Phone"></Label>
+            <Entry Placeholder="+34 654123456"
+                   Text="{Binding NewContacto.Phone}"></Entry>
+            <Label Text="Email"></Label>
+            <Entry Placeholder="test@hotmail.com"
+                   Text="{Binding NewContacto.Email}"
+                   Keyboard="Email"></Entry>
+            <Button HeightRequest="100"
+                    Text="Save Contacto"
+                    Command="{Binding SaveContactoCommand}"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
