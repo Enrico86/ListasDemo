@@ -11,16 +11,16 @@ namespace ListasDemo.ViewModel
     public class ContactosViewViewModel
     {
         public Command SaveContactoCommand { get; set; }
-        public Contactos NewContacto { get; set; }
+        public Contacto NewContacto { get; set; }
         private INavigation Navigation;
         public ContactosViewViewModel (INavigation navigation)
         {
-            NewContacto = new Contactos();
+            NewContacto = new Contacto();
             SaveContactoCommand = new Command(async () => await SaveContacto());
             Navigation = navigation;
         }
 
-        public ContactosViewViewModel (INavigation navigation, Contactos contacto)
+        public ContactosViewViewModel (INavigation navigation, Contacto contacto)
         {
             NewContacto = contacto;
             SaveContactoCommand = new Command(async () => await SaveContacto());

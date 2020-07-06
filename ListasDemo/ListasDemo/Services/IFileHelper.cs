@@ -7,7 +7,7 @@ namespace ListasDemo.Services
     public interface IFileHelper
     //Cuando trabajamos con BBDD lo que estamos haciendo es crear (o cargar si ya lo hemos creado) un archivo
     //dentro del dispositivo. Esta archivo es la BBDD con la que vamos a trabajar. Entonces con esta Interfaz
-    //pretendemos crear una interfaz que se vaya a inmplementar en cada plataforma, en las que le pasaremos 
+    //pretendemos crear una interfaz que se vaya a implementar en cada plataforma, en las que le pasaremos 
     //la ruta donde estará éste archivo. Hay que hacerlo así porqué cada plataforma lo almacena en una ruta 
     //ligeramente diferente.
     {

@@ -19,11 +19,13 @@ namespace ListasDemo.Behaviors
                 propertyChanged: OnItemTappedChanged);
 
         public static ICommand GetItemTapped (BindableObject bindable)
+            //Con este método pretendemos coger los valores de la CommandProperty del elemento seleccionado en el ListView
         {
             return (ICommand)bindable.GetValue(CommandProperty);
         }
 
         public static void SetItemTapped (BindableObject bindable, ICommand value)
+            //Con este método pretendemos establecer nuevos valores a la CommandProperty 
         {
             bindable.SetValue(CommandProperty, value); 
         }

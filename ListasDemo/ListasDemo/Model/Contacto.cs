@@ -7,7 +7,7 @@ using System.Text;
 
 namespace ListasDemo.Model
 {
-    public class Contactos: INotifyPropertyChanged
+    public class Contacto: INotifyPropertyChanged
     {
 
         

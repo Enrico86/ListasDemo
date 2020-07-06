@@ -14,7 +14,7 @@ namespace ListasDemo.View
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ContactosView : ContentPage
     {
-        public ContactosView(Contactos contacto = null)
+        public ContactosView(Contacto contacto = null)
         {
             InitializeComponent();
             if (contacto == null)

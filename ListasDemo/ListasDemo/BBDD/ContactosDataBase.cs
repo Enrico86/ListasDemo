@@ -21,7 +21,7 @@ namespace ListasDemo.BBDD
             database = new SQLiteAsyncConnection(dbPath);
             //Definimos la variable database como una nueva instancia de la clase SQLiteAsyncConnection. Esta clase necesita recibir
             //como parametro la ruta de la BBDD.
-            database.CreateTableAsync<Contactos>().Wait();
+            database.CreateTableAsync<Contacto>().Wait();
             //El método CreateTableAsync se encarga de crear la tabla de tipo Contactos dentro de nuestro database, en el caso 
             //que no exista (esto lo comprueba solo, no tengo que decirle nada). Con el método Wait esperamos a que se lleve a 
             //cabo esta operación.
@@ -31,18 +31,18 @@ namespace ListasDemo.BBDD
         //Y ahora pretendemos crear los métodos que nos permitan hacer las querys a la tabla que hemos
         //creado dentro nuestro database: poder agregar Contactos, guardar cambios en un contacto, coger la información
         //de todos los Contactos, coger la ifnormación de un solo Contacto, etc.
-        public async Task<List<Contactos>> GetItemsAsync()
+        public async Task<List<Contacto>> GetItemsAsync()
         //Este método va a coger toda la información de la tabla y la mete en una lista (la utilizaremos por ejemplo
         //para visualizar todos los elementos en un ListView)
         {
-            return await database.Table<Contactos>().ToListAsync();
+            return await database.Table<Contacto>().ToListAsync();
         }
 
 
-        public Task<Contactos> GetItemAsync(int id)
+        public Task<Contacto> GetItemAsync(int id)
         //Este método servirá para coger en la tabla la información de un solo contacto.
         {
-            return database.Table<Contactos>()
+            return database.Table<Contacto>()
                 .Where(i => i.ID == id)
                 .FirstOrDefaultAsync();
             //Le estamos diciendo al método que devuelva la info del primer elemento contacto donde (en el caso en que) i.ID (el ID del elemento)
@@ -50,7 +50,7 @@ namespace ListasDemo.BBDD
         }
 
 
-        public Task<int> SaveItemAsync (Contactos item)
+        public Task<int> SaveItemAsync (Contacto item)
         {
             //Con este método pretendemos guardar los contactos en la base de datos.
             if (item.ID!=0)
@@ -69,7 +69,7 @@ namespace ListasDemo.BBDD
             //(InsertAsync)
         }
 
-        public Task<int> DeleteItemAsync (Contactos item)
+        public Task<int> DeleteItemAsync (Contacto item)
         {
             return database.DeleteAsync(item); 
         }
